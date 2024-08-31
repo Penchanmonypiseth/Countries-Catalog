@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F8F7F4;
+    font-family: NunitoSans;
+    overflow: hidden;
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: NunitoSans;
+    src: url(/src/assets/font/NunitoSans.ttf);
+}
+
+:root {
+    --Silver: #C0C0C0;
+    --DarkGray: #A9A9A9;
+    --DeepSkyBlue: #00BFFF;
+    --FadeSilver: #cdcaca56;
+    --White: white;
+}
