@@ -1,5 +1,5 @@
 export class Request {
-    public async get(endPoint: string): Promise<any> {
+    public async get(endPoint: string){
         try {
             const response = await fetch(endPoint);
             if (!response.ok) {

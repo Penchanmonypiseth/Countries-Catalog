@@ -1,17 +1,13 @@
 <div class="pagination_wrapper">
     <div class="pagination">
-        <div class="button_back">
-            <i class="fa-solid fa-backward"></i>
-        </div>
-        <div class="paginate">
-            <span class="active_current_page">1</span>
-            <span>1</span>
-            <span>1</span>
-            <span>1</span>
-            <span>1</span>
-        </div>
-        <div class="button_next">
-            <i class="fa-solid fa-forward"></i>
-        </div>
+      <div class="button_back">
+        <button class="fa-solid fa-backward btn_paginate" @click="onClickBackPageNumber"></button>
+      </div>
+      <div class="paginate">
+        <span v-for="(paginate, index) of totalPaginate" :key="index" @click="onUpdatePageNumber(paginate)" :class="{active_current_page: paginate == internalPageNumber}">{{paginate}}</span>
+      </div>
+      <div class="button_next">
+        <button class="fa-solid fa-forward btn_paginate" @click="onClickNextPageNumber"></button>
+      </div>
     </div>
-</div>
+  </div>

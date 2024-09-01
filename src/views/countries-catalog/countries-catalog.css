@@ -2,6 +2,7 @@
     display: grid;
     place-items: center;
     padding: 10px;
+    position: absolute;
 }
 
 .container {
@@ -14,7 +15,7 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    height: 10vh;
+    height: 6vh;
 }
 
 .search_input {
@@ -44,7 +45,7 @@
 .countries_catalog_card {
     width: 100%;
     background-color: var(--White);
-    height: 325px;
+    height: 340px;
     border-radius: 5px;
     padding: 5px;
     border: 2px solid var(--FadeSilver);
@@ -105,4 +106,18 @@
     padding: 0px 1px 0px 1px;
     border: 1px solid var(--FadeSilver);
     cursor: pointer;
+    text-align: center;
+    color: var(--DeepSkyBlue);
+}
+
+.sort_container {
+    margin-bottom: 8px;
+}
+
+.sort_container select {
+    margin-left: 10px;
+    padding: 1px 40px;
+    border: 1px solid var(--Silver);
+    border-radius: 5px;
+    outline: 1px solid var(--DeepSkyBlue);
 }

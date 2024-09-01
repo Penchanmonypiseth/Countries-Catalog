@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--White);
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -37,12 +37,18 @@
     cursor: pointer;
 }
 
-.button_back:active,
-.button_next:active {
-    color: var(--Silver);
-}
 
 .active_current_page {
-    background-color: red;
+    background-color: var(--DeepSkyBlue);
     border-radius: 100%;
+}
+
+.btn_paginate {
+    outline: none;
+    border: none;
+}
+
+.btn_paginate:active,
+.btn_paginate:active {
+    color: var(--Silver);
 }

@@ -1,0 +1,61 @@
+<h1 class="popup_container_wrapper">
+    <div class="popup_content">
+        <div class="countries_header_label">
+            <h6>Countries Catalog Details</h6>
+        </div>
+        <div class="flag_content">
+            <img :src="detailItems.flag" :alt="detailItems.flag">
+        </div>
+        <div class="btn_close_popup" @click="onClickClosePopup()">
+            <i class="fa-solid fa-x"></i>
+        </div>
+        <div class="countries_label_info_wrapper">
+            <div class="countries_label_info">
+                <div class="label">
+                    <label for="Country Name">Country Name:</label>
+                    <span>{{detailItems.countryName}}</span>
+                </div>
+                <div class="label">
+                    <label for="Country Code(CCA2)">Country Code(CCA2):</label>
+                    <span>{{detailItems.countryCodeCCA2}}</span>
+                </div>
+                <div class="label">
+                    <label for="Country Code(CCA3):">Country Code(CCA3):</label>
+                    <span>{{detailItems.countryCodeCCA3}}</span>
+                </div>
+                <div class="label">
+                    <label for="Native Country Name">Native Country Name:</label>
+                    <span>{{detailItems.nativeCountryName}}</span>
+                </div>
+                <div class="label">
+                    <label for="Alternative Country Name">Alternative Country Name:</label>
+                    <span>{{detailItems.alternativeCountryName}}</span>
+                </div>
+            </div>
+            <div class="countries_label_info">
+                <div class="countries_label_info">
+                    <div class="label">
+                        <label for="Languages">Languages:</label>
+                        <span v-for="languages of detailItems.languages">{{languages}}</span>
+                    </div>
+                    <div class="label">
+                        <label for="Region">Region:</label>
+                        <span> {{detailItems.region}}</span>
+                    </div>
+                    <div class="label">
+                        <label for="Subregion">Subregion:</label>
+                        <span> {{detailItems.subregion}}</span>
+                    </div>
+                    <div class="label">
+                        <label for="Capital City">Capital City</label>
+                        <span v-for="capitalCity of detailItems.capitalCity">{{capitalCity}}</span>
+                    </div>
+                    <div class="label">
+                        <label for="Start Of Week">Start Of Week:</label>
+                        <span>{{detailItems.startOfWeek}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</h1>

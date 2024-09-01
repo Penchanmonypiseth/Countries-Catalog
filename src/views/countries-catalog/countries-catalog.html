@@ -1,61 +1,66 @@
 <div class="container_wrapper">
     <div class="container">
         <div class="search_bar_content">
-            <input type="text" name="searchCountriesCatalog" placeholder="Search.." class="search_input">
+            <input type="text" v-model="searchCountryCatalog" name="searchCountryCatalog" placeholder="Search.." class="search_input">
+        </div>
+        <div class="sort_container">
+            <select v-model="sortBy" name="sortCounties">
+                <option value="asc">ASC</option>
+                <option value="dsc">DSC</option>
+            </select>
         </div>
         <div class="countries_catalog_content">
-            <div class="countries_catalog_card">
+            <div class="countries_catalog_card" v-for="(item, index) of handleSelectItemBaseOnPageNumber" :key="index" @click="onClickGetCountryDetail(item)">
                 <div class="countries_img">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/640px-Flag_of_Cambodia.svg.png"
-                        alt="">
+                    <img :src="item.flag" :alt="item.flag">
                 </div>
                 <div class="border_solide"></div>
                 <div class="countries_info_wrapper">
                     <div class="countries_label">
                         <label for="Country Name">Country Name: </label>
-                        <div class="countries_info view_detail">
-                            <span>Cambodia Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur harum dolor
-                                deserunt nisi ea totam quidem libero repellat nobis.</span>
+                        <div class="countries_info view_detail" @click="onClickOpenPopupCountryDetail()">
+                            <span>{{item.countryName}}</span>
                         </div>
                     </div>
                     <div class="countries_label">
-                        <label for="Country Code(CCA1):">Country Code(CCA1): </label>
+                        <label for="Country Code(CCA2):">Country Code(CCA2): </label>
                         <div class="countries_info">
-                            <span>Cambodia Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur harum dolor
-                                deserunt nisi ea totam quidem libero repellat nobis.</span>
+                            <span>{{item.countryCodeCCA2}}</span>
                         </div>
                     </div>
                     <div class="countries_label">
-                        <label for="Country Code(CCA2)">Country Code(CCA2): </label>
+                        <label for="Country Code(CCA3)">Country Code(CCA3): </label>
                         <div class="countries_info">
-                            <span>Cambodia Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur harum dolor
-                                deserunt nisi ea totam quidem libero repellat nobis.</span>
+                            <span>{{item.countryCodeCCA3}}</span>
                         </div>
                     </div>
                     <div class="countries_label">
                         <label for="Native Country Name:">Native Country Name: </label>
                         <div class="countries_info">
-                            <span>Cambodia Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur harum dolor
-                                deserunt nisi ea totam quidem libero repellat nobis.</span>
+                            <span>{{item.nativeCountryName}}</span>
                         </div>
                     </div>
                     <div class="countries_label">
                         <label for="Alternative Country Name">Alternative Country Name: </label>
                         <div class="countries_info">
-                            <span>Cambodia Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur harum dolor
-                                deserunt nisi ea totam quidem libero repellat nobis.</span>
+                            <span>{{item.alternativeCountryName}}</span>
                         </div>
                     </div>
                     <div class="countries_label">
                         <label for="Country Spelling Code">Country Spelling Code: </label>
                         <div class="countries_info">
-                            <span>Cambodia Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur harum dolor
-                                deserunt nisi ea totam quidem libero repellat nobis.</span>
+                            <span v-for="(spellingCode) of item.countrySpellingCode">{{spellingCode[0]}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <pagination :items="responseData" />
+        <pagination
+            :items="countriesCatalogItems"
+            :pageNumber="pageNumber"
+            :pageSize="pageSize"
+            @update:pageNumber="updatePageNumber"
+        />
     </div>
 </div>
+<PopupCountriesCataLog @closePopup="closePopup" :class="{activePopup: isShowPopupDetail}" :detailItems="countriesCatalogDetail"/>
