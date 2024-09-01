@@ -13,7 +13,7 @@ export default defineComponent({
         return {
             countriesCatalogItems: [] as any[],
             pageNumber: 1 as number,
-            pageSize: 30 as number,
+            pageSize: 25 as number,
             startFromItems: 0,
             startToItems: 30,
             searchCountryCatalog: "",

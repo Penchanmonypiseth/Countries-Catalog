@@ -3,6 +3,7 @@
     place-items: center;
     padding: 10px;
     position: absolute;
+    width: 100%;
 }
 
 .container {
@@ -120,4 +121,13 @@
     border: 1px solid var(--Silver);
     border-radius: 5px;
     outline: 1px solid var(--DeepSkyBlue);
+}
+
+.no_data_content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--Silver);
+    font-weight: bold;
 }

@@ -62,5 +62,6 @@
             @update:pageNumber="updatePageNumber"
         />
     </div>
+    <span class="no_data_content" v-if="handleSelectItemBaseOnPageNumber.length == 0">No Data</span>
 </div>
 <PopupCountriesCataLog @closePopup="closePopup" :class="{activePopup: isShowPopupDetail}" :detailItems="countriesCatalogDetail"/>
